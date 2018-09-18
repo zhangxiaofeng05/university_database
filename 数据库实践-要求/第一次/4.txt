@@ -1,0 +1,27 @@
+CREATE TABLE student
+  (sno CHAR(5) NOT NULL PRIMARY KEY(sno),
+   sname CHAR(20),
+   sage SMALLINT CHECK(sage >=15 AND sage <=45),
+   ssex CHAR(2) DEFAULT 'ÄÐ' CHECK (ssex IN ('ÄÐ','Å®')),
+   Sdept CHAR(20)
+   );
+
+CREATE TABLE course
+(  cno CHAR(2) NOT NULL,
+   cname VARCHAR(20),
+   cpno CHAR(2),
+   ccredit SMALLINT,
+   PRIMARY KEY(cno),
+ );
+
+CREATE TABLE sc
+(  sno CHAR(5),
+   cno CHAR(2),
+   grade SMALLINT CHECK((grade IS NULL )OR(grade BETWEEN 0 AND 100)),
+   PRIMARY KEY(sno,cno),
+   FOREIGN KEY(sno)REFERENCES student(sno),
+   FOREIGN KEY(cno)REFERENCES course(cno),
+   );
+
+
+

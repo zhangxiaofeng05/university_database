@@ -1,0 +1,18 @@
+Use  zhang
+Go
+Create Table aa
+(
+Aa1 Varchar (20),
+Aa2 Int,
+Aa3 Dec (10 ,2),
+)
+Go
+
+
+
+Use    zhang
+Go
+Sp_help  aa
+Go
+
+Drop Table aa

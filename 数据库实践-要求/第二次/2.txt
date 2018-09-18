@@ -1,0 +1,33 @@
+create database worlk 
+
+create table 职工表
+(
+  职工号 char(20) primary key,
+  姓名 char(20) unique,
+  性别 char(20),
+  年龄 smallint,
+  部门 char(20)
+);
+
+create table 部门表
+(
+  部门号 char(20) primary key,
+  部门名称 char(20) unique,
+  电话 char(20)
+  
+);
+
+select 姓名,部门名称,电话
+from 职工表,部门表
+where 职工表.部门=部门表.部门号
+
+select 姓名,部门名称,电话
+from 职工表 left  join 部门表 on
+(职工表.部门=部门表.部门号);
+select 姓名,部门名称,电话
+from 职工表 right  join 部门表 on
+(职工表.部门=部门表.部门号);
+
+select 姓名,部门名称,电话
+from 职工表,部门表
+where 职工表.部门=部门表.部门号

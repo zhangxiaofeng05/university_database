@@ -1,0 +1,12 @@
+Use  zhang
+Go
+Create Table bb
+(
+Bb1 Varchar (30),
+Bb2 Int,
+Bb3 Dec (6 ,2),
+)
+Go
+
+
+Alter Table bb add Bb4 Varchar (20) 

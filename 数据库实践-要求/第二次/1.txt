@@ -1,0 +1,68 @@
+create database student 
+
+create table student(
+sno char(9) not null primary key,
+sname char(10),
+sage int,
+ssex char(2),
+sdept char(20),
+)
+
+create table course(
+cno char(9) not null primary key,
+cname char(10),
+cpno char(4),
+ccredit int,
+)
+
+create table sc(
+sno char(9) not null,
+cno char(9) not null,
+grade int,
+primary key(sno,cno),
+foreign key (sno) references student(sno),
+foreign key (cno) references course(cno),
+)
+
+select sno,sname
+from student
+where sdept='jisuanji'
+
+select sno
+from sc
+where grade is not null;
+
+select sno,grade
+from sc
+where cno='1'
+order by grade desc,sno asc;
+
+select sno,grade*0.85
+from sc
+where cno='1' and grade between 80 and 90;
+
+select *
+from student
+where sdept in ('ma','is') and sname like 'уе%'
+
+select sno,cno
+from sc
+where grade is  null;
+
+select student.*,sc.cno
+from student,sc
+where student.sno=sc.sno;
+
+select student.sno,sname,cno,grade
+from student,sc
+where student.sno=sc.sno;
+
+select student.sno,sname,grade
+from student,sc
+where student.sno=sc.sno and grade>90 and sc.cno='1';
+
+select first.cno,second.cpno
+from course first,course second
+where first.cpno=second.cno;
+
+

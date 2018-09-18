@@ -1,0 +1,28 @@
+create database project
+
+create table 供应商(
+供应商代码 int,
+姓名 char(10),
+所在城市 char (10),
+联系电话 int,
+)
+
+create table 工程(
+工程代码 int,
+工程名 char(10),
+负责人 char(10),
+预算 int,
+)
+
+create table 零件(
+零件代码 int,
+零件名 char(10),
+规格 char(10),
+产地 char(10),
+颜色 char(10),
+)
+
+create table 供应零件(
+供应商代码 int,
+工程代码 int
+)

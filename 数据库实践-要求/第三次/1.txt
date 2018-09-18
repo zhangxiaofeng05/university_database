@@ -1,0 +1,84 @@
+create database Student
+
+create table Student(
+sno int,
+sname char(8),
+sage int,
+ssex char(2),
+sdept char(10),
+)
+
+create table course(
+cno int,
+cname char(8),
+cpno int,
+ccredit int,
+)
+
+create table sc(
+sno int,
+cno int,
+grade int,
+)
+
+select student.sno,sname
+from student,sc
+where student.sno=sc.sno and cno in
+(select cno
+from course
+where cname='math'
+);
+
+select student.sno,grade
+from student,sc
+where student.sno=sc.sno and cno='1' and grade>
+(select grade
+from sc
+	where sno in
+	(select sno
+	from student
+	where sname='li')
+);
+
+select *
+from  student
+where sdept<>'cs' and sage<
+          (select max(sage)
+            from  student
+            where sdept='cs'
+               );
+
+select *
+from  student
+where sdept<>'cs' and sage<
+          (select min(sage)
+            from  student
+            where sdept='cs'
+               );
+
+select sname
+from  student,sc
+where student.sno=sc.sno and cno='2';
+
+select sname
+from student,sc
+where not exists 
+              (select *
+               from sc
+               where sno=student.sno and cno='2'
+               );
+
+select sname
+from student
+where not exists
+(select *
+from course
+where not exists( select *
+from sc
+where sno=student.sno and cno=course.cno));
+
+8Ã»×ö
+
+
+
+

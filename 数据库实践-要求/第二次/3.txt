@@ -1,0 +1,31 @@
+create database worlk_else
+
+create table 职工
+(
+   职工号 char(20) primary key,
+   姓名 char(20) unique,
+   负责人 char(20),
+   活动地点 char(20)
+);
+
+create table 职工社团
+(
+   编号 char(20) primary key,
+   名称 char(20) unique,
+   负责人 char(20),
+   活动地点 char(20)
+);
+
+create table 参加
+(
+职工号 char(20),
+编号 char (20),
+活动地点 char(20),
+primary key(职工号,编号),
+foreign key (职工号) references 职工(职工号),
+foreign key (编号) references 职工社团(编号),
+);
+
+
+
+
