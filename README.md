@@ -1,6 +1,5 @@
 ## 数据库
 ### SQL server2017安装指导
-我写的[戳我](https://zhangxiaofeng.top/2018/04/17/SQL-server%E7%9A%84%E4%BD%BF%E7%94%A8/)  
 
 课件   
 
